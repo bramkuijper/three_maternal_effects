@@ -70,7 +70,6 @@ double wmin = 0.0; // minimal survival probability
 double sigma_e = 1.0; // variance of developmental noise
 double sigma_ksi = 0.1; // variance of the autocorrelated process
 double rho_t = 0.5; // temporal autocorrelation
-double freq = 0; // frequency of sinusoidal
 double mu_g 	  = 0.05;            // mutation rate
 double sdmu         = 0.05;			 // standard deviation mutation size
 double mu_m_m 	  = 0.05;            // mutation rate
@@ -78,8 +77,21 @@ double mu_m_g 	  = 0.05;            // mutation rate
 double mu_m_e 	  = 0.05;            // mutation rate
 double mu_b 	  = 0.05;            // mutation rate
 double ksi = 0;			 // standard deviation mutation size
-double ampl = 2.0;      // amplitude of the sinusoidal
 double tau = 0.0;       // developmental time lag
+
+double rate = 0.0;
+double intercept = 0.0;
+double ampl = 0.0;
+
+// initial values
+double int_t0 = 0;
+double rate_t0 = 0;
+double ampl_t0 = 0;
+
+// values after perturbation
+double intptb = 0;
+double rateptb = 0;
+double amplptb = 0;
 
 const int n_alleles_b = 2; // number of alleles underlying genetic architecture
 const int n_alleles_g = 2; // number of alleles underlying genetic architecture
@@ -139,17 +151,24 @@ void initArguments(int argc, char *argv[])
 	mu_m_m = atof(argv[4]);
 	mu_b = atof(argv[5]);
 	sdmu = atof(argv[6]);
-	freq = atof(argv[7]);
-	sigma_e = sqrt(atof(argv[8]));
-	sigma_ksi = sqrt(atof(argv[9]));
-	wmin = atof(argv[10]);
-	rho_t = atof(argv[11]);
-	omega2 = atof(argv[12]);
-	omega_b_2 = atof(argv[13]);
-	omega_m_m_2 = atof(argv[14]);
-	omega_m_e_2 = atof(argv[15]);
-	omega_m_g_2 = atof(argv[16]);
-	tau = atof(argv[17]);
+	sigma_e = sqrt(atof(argv[7]));
+	sigma_ksi = sqrt(atof(argv[8]));
+	wmin = atof(argv[9]);
+	rho_t = atof(argv[10]);
+	omega2 = atof(argv[11]);
+	omega_b_2 = atof(argv[12]);
+	omega_m_m_2 = atof(argv[13]);
+	omega_m_e_2 = atof(argv[14]);
+	omega_m_g_2 = atof(argv[15]);
+	tau = atof(argv[16]);
+
+    intercept = int_t0 = atof(argv[17]);
+    rate = rate_t0 = atof(argv[18]);
+    ampl = ampl_t0 = atof(argv[19]);
+
+    intptb = atof(argv[20]);
+    rateptb = atof(argv[21]);
+    amplptb = atof(argv[22]);
 }
 
 
@@ -197,8 +216,12 @@ void WriteParameters()
         << "omega_m_g_2;" << omega_m_g_2 << ";" << endl
         << "omega_m_e_2;" << omega_m_e_2 << ";" << endl
         << "wmin;" << wmin << ";" << endl
-        << "ampl;" << ampl << ";" << endl
-        << "freq;" << freq << ";" << endl
+        << "int_t0;" << int_t0 << ";" << endl
+        << "rate_t0;" << rate_t0 << ";" << endl
+        << "ampl_t0;" << ampl_t0 << ";" << endl
+        << "intptb;" << intptb << ";" << endl
+        << "rateptb;" << rateptb << ";" << endl
+        << "amplptb;" << amplptb << ";" << endl
         << "sigma_e;" << sigma_e << ";" << endl
         << "sigma_ksi;" << sigma_ksi << ";" << endl
         << "rho_t;" << rho_t << ";" << endl
@@ -316,6 +339,15 @@ void Survive()
 
     double theta = ampl * epsilon;
 
+    if (generation == rint(NumGen / 2))
+    {
+        rate = rateptb;
+        intercept = intptb;
+        ampl = amplptb;
+
+    }
+
+
     NSurv = 0;
 
     for (int i = 0; i < Npop; ++i)
@@ -349,7 +381,7 @@ void Survive()
     // as an autocorrelated gaussian random variable
     ksi = rho_t*ksi + gsl_ran_gaussian(r, sqrt(1.0-rho_t*rho_t)*sigma_ksi);
 
-    epsilon = 1.0 + sin(freq * (generation+1)) + ksi;
+    epsilon = intercept + ampl * sin(rate * (generation+1)) + ksi;
 
     // in the likely case there is a developmental timelag, tau,
     // update the environment for a number of 'sub' timesteps
@@ -365,7 +397,7 @@ void Survive()
     }
 
     // update the value of the sensed environment
-    epsilon_sens = sin(freq * (generation-tau+1)) + ksi;
+    epsilon_sens = intercept + ampl * sin(rate * (generation-tau+1)) + ksi;
 
     // finally, let the survivors produce N offspring 
     for (int i = 0; i < Npop; ++i)

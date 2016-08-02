@@ -87,7 +87,6 @@ plt.plot(
         histdat["generation"],histdat["varm_g"],'powderblue',
         histdat["generation"],histdat["varm_e"],'magenta',
         linewidth=1)
-plt.tick_params(axis='x',which='both',bottom='on',top='on',labelbottom='off')
 plt.ylabel(r'Variances')
 plt.legend((r'$\sigma_{g}^{2}$',r'$\sigma_{m_{m}}^{2}$',r'$\sigma_{m_{g}}^{2}$',r'$\sigma_{m_{e}}^{2}$'))
 
