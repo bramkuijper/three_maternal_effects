@@ -42,12 +42,12 @@ histdat = histdat[histdat["generation"] % 10 == 0]
 # initialize and specify size 
 fig = plt.figure(figsize=(10,10))
 
-num_rows = 5
+num_rows = 6
 
 # add first subplot
 plt.subplot(num_rows,1,1)
-plt.plot(histdat["generation"],histdat["meanz"],'b',
-        histdat["generation"],histdat["epsilon"],'darkgreen'
+plt.plot(        histdat["generation"],histdat["epsilon"],'darkgreen',
+histdat["generation"],histdat["meanz"],'b'
         )
 plt.tick_params(axis='x',which='both',bottom='on',top='on',labelbottom='off')
 plt.ylabel(r'Elevation, $\bar{z}$')
@@ -89,6 +89,13 @@ plt.plot(
         linewidth=1)
 plt.ylabel(r'Variances')
 plt.legend((r'$\sigma_{g}^{2}$',r'$\sigma_{m_{m}}^{2}$',r'$\sigma_{m_{g}}^{2}$',r'$\sigma_{m_{e}}^{2}$'))
+
+# add fourth subplot
+plt.subplot(num_rows,1,6)
+plt.plot(
+        histdat["generation"],histdat["varz"],'peru',
+        linewidth=1)
+plt.ylabel(r'Variances')
 
 graphname = os.path.dirname(filename)
 if graphname != '':

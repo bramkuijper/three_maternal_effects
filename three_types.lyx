@@ -1,0 +1,486 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\definecolor{darkblue}{RGB}{0,4,106}
+\usepackage{doi}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm}
+\allowdisplaybreaks
+\tikzset{test/.style={font=\sffamily\huge}}
+\DeclareMathVersion{sfnums}
+\usepackage{apjfonts}
+\end_preamble
+\options numbers,sort&compress
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "helvet" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\paperfontsize 12
+\spacing other 1.05
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "citecolor=darkblue,urlcolor=darkblue,linkcolor=darkblue"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Maternal effects based on maternal genotype, phenotype or environment: same
+ or different?
+\end_layout
+
+\begin_layout Author
+Bram Kuijper
+\begin_inset Formula $^{1,2,3,6}$
+\end_inset
+
+ & Rebecca B.
+ Hoyle
+\begin_inset Formula $^{4,5,7}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Running header:
+\end_layout
+
+\begin_layout Standard
+Evolution of different maternal effects
+\end_layout
+
+\begin_layout Paragraph
+Keywords:
+\end_layout
+
+\begin_layout Standard
+Epigenetics, Transgenerational plasticity, Maternal hormone, Extended inheritanc
+e, Nongenetic effect
+\end_layout
+
+\begin_layout Paragraph
+Affiliations:
+\end_layout
+
+\begin_layout Enumerate
+Environment and Sustainability Institute (ESI), College of Life and Environmenta
+l Sciences, University of Exeter, Penryn Campus, Penryn TR10 9EZ, UK
+\end_layout
+
+\begin_layout Enumerate
+CoMPLEX, Centre for Mathematics and Physics in the Life Sciences and Experimenta
+l Biology, University College London, Physics Building, Gower Street, London
+ WC1E 6BT, UK
+\end_layout
+
+\begin_layout Enumerate
+Department of Genetics, Evolution and Environment, University College London,
+ Darwin Building, Gower Street, London, WC1E 6BT
+\end_layout
+
+\begin_layout Enumerate
+XX
+\end_layout
+
+\begin_layout Enumerate
+YY
+\end_layout
+
+\begin_layout Enumerate
+a.l.w.kuijper@exeter.ac.uk
+\end_layout
+
+\begin_layout Enumerate
+r.b.hoyle@soton.ac.uk
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+It is well understood that offspring can rely on different sources of maternal
+ information, such as the maternal genotype (maternal genetic effects),
+ the maternal phenotype (cascading maternal effects) or the maternal environment
+ (maternal environmental effects).
+ So far, studies on the evolution of maternal effects typically consider
+ only one source of maternal information, raising the question whether conclusio
+ns are robust to the type of maternal effect involved.
+ To address this question, we develop a quantitative genetics approach which
+ compares the evolutionary dynamics of different types of maternal effects
+ in environments either characterized by i) a peak shift, or fluctuations
+ that are either ii) deterministic or iii) stochastic.
+ In the absence of constraints, maternal enviromental effects should be
+ the most common type of maternal effect.
+ This is because the maternal environment provides a direct source of informatio
+n about the offspring's environment (at least when environments are autocorrelat
+ed).
+ By contrast, maternal genetic effects and cascading maternal effects only
+ provide indirect sources of information about the environment through the
+ maternal phenotype, requiring not only a environmental autocorrelation,
+ but also a correlation between the maternal genotype or phenotype and her
+ environment.
+ Moreover, the evolution of some maternal genetic effects depends strongly
+ on the type of environmental change: upon a peak shift, strong and positive
+ maternal genetic effects are selectively favored, whereas a fluctuating
+ environment selects against maternal genetic effects.
+ We conclude that evolutionary dynamics diverge considerably dependent on
+ the type of maternal effect involved.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Mothers influence offspring phenotypes not only by passing on their genes,
+ but also through the contribution of nutrients, antibodies and hormones
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Bonduriansky2009,Jablonka2009,Maestripieri2009,Danchin2011"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+The model
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Subsection
+Peak shift: different evolutionary responses, yet no fitness differences
+\end_layout
+
+\begin_layout Subsection
+Fluctuations: 
+\end_layout
+
+\begin_layout Standard
+Supplement: stochastic flucts
+\end_layout
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Section
+Figure captions
+\end_layout
+
+\begin_layout Section
+Figures
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "/home/bram/Projects/databases/transgenerational"
+options "evolution"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{equation}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{table}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{figure}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*
+\backslash
+theequation{S
+\backslash
+arabic{equation}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*
+\backslash
+theHequation{S
+\backslash
+arabic{equation}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*
+\backslash
+theHsection{S
+\backslash
+arabic{section}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*
+\backslash
+thesection{S
+\backslash
+arabic{section}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*
+\backslash
+theHfigure{S
+\backslash
+arabic{figure}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*
+\backslash
+theHtable{S
+\backslash
+arabic{table}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*
+\backslash
+thefigure{S
+\backslash
+arabic{figure}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*
+\backslash
+thetable{S
+\backslash
+arabic{table}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+LARGE{Maternal effects based on maternal genotype, phenotype or environment:
+ same or different?}
+\backslash
+vspace{.5cm}
+\backslash
+
+\backslash
+	 
+\backslash
+large{Bram Kuijper 
+\backslash
+& Rebecca B.
+ Hoyle}
+\backslash
+
+\backslash
+ 
+\backslash
+Large{
+\backslash
+textbf{Online Supplement}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Online Supplement
+\end_layout
+
+\end_body
+\end_document

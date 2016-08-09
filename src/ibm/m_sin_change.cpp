@@ -94,11 +94,12 @@ double rateptb = 0;
 double amplptb = 0;
 
 const int n_alleles_b = 2; // number of alleles underlying genetic architecture
-const int n_alleles_g = 2; // number of alleles underlying genetic architecture
+const int n_alleles_g = 50; // number of alleles underlying genetic architecture
 const int n_alleles_m = 2; // number of alleles underlying genetic architecture
 
 // keep track of the current generation number
 int generation = 0;
+int t_change = 0;
 
 // random seed
 unsigned seed = 0;
@@ -169,6 +170,8 @@ void initArguments(int argc, char *argv[])
     intptb = atof(argv[20]);
     rateptb = atof(argv[21]);
     amplptb = atof(argv[22]);
+
+    t_change = atoi(argv[23]);
 }
 
 
@@ -251,11 +254,11 @@ void Init()
 	// initialize the whole populatin
 	for (int i = 0; i < Npop; ++i)
 	{
-        Pop[i].phen = 1.0;
+        Pop[i].phen = intercept;
 
         for (int j = 0; j < n_alleles_g; ++j)
         {
-            Pop[i].g[j] = 0.5;
+            Pop[i].g[j] = intercept/n_alleles_g;
         }
 
         for (int j = 0; j < n_alleles_b; ++j)
@@ -319,12 +322,12 @@ void Create_Kid(int mother, int father, Individual &kid)
 
     // complete maternal control
     kid.phen = 
-        Survivors[mother].phen_g // elevation
+        kid.phen_g // elevation
         + gsl_ran_gaussian(r,sigma_e)  // developmental noise
-        + Survivors[mother].phen_b * epsilon_sens  // plasticity
-        + Survivors[mother].phen_m_m * Survivors[mother].phen // maternal phenotypic effect
-        + Survivors[mother].phen_m_e * Survivors[mother].envt // maternal phenotypic effect
-        + Survivors[mother].phen_m_g * Survivors[mother].phen_g; // maternal phenotypic effect
+        + kid.phen_b * epsilon_sens  // plasticity
+        + kid.phen_m_m * Survivors[mother].phen // maternal phenotypic effect
+        + kid.phen_m_e * Survivors[mother].envt // maternal phenotypic effect
+        + kid.phen_m_g * Survivors[mother].phen_g; // maternal phenotypic effect
 
     kid.envt = epsilon_sens;
 
@@ -339,12 +342,11 @@ void Survive()
 
     double theta = ampl * epsilon;
 
-    if (generation == rint(NumGen / 2))
+    if (generation == t_change)
     {
         rate = rateptb;
         intercept = intptb;
         ampl = amplptb;
-
     }
 
 
@@ -415,6 +417,7 @@ void Survive()
 void WriteData()
 {
     double meanphen = 0;
+    double ssphen = 0;
     double meang = 0;
     double ssg = 0;
     double meanm_m = 0;
@@ -447,19 +450,22 @@ void WriteData()
         ssb += Pop[i].phen_b * Pop[i].phen_b;
 
         meanphen += Pop[i].phen;
+
+        ssphen += Pop[i].phen * Pop[i].phen;
     }
 
     DataFile << generation << ";" << epsilon << ";" << NSurv << ";" << ksi << ";";
 
     DataFile 
             << (meanphen/Npop) << ";"
-            << (meang/(Npop)) << ";"
-            << (ssg/(Npop) - pow(meang/Npop,2.0)) << ";"
-            << (meanm_m/(Npop)) << ";"
+            << ((ssphen/Npop) - pow(meanphen/Npop,2.0)) << ";"
+            << (meang/Npop) << ";"
+            << (ssg/Npop - pow(meang/Npop,2.0)) << ";"
+            << (meanm_m/Npop) << ";"
             << (ssm_m/Npop - pow(meanm_m/Npop,2.0)) << ";" 
-            << (meanm_g/(Npop)) << ";"
+            << (meanm_g/Npop) << ";"
             << (ssm_g/Npop - pow(meanm_g/Npop,2.0)) << ";" 
-            << (meanm_e/(Npop)) << ";"
+            << (meanm_e/Npop) << ";"
             << (ssm_e/Npop - pow(meanm_e/Npop,2.0)) << ";" 
             << (meanb/Npop) << ";"
             << (ssb/Npop - pow(meanb/Npop,2.0)) << ";"  << endl;
@@ -468,7 +474,7 @@ void WriteData()
 // write the headers of a datafile
 void WriteDataHeaders()
 {
-    DataFile << "generation;epsilon;nsurv;ksi;meanz;meang;varg;meanm_m;varm_m;meanm_g;varm_g;meanm_e;varm_e;meanb;varb;" << endl;
+    DataFile << "generation;epsilon;nsurv;ksi;meanz;varz;meang;varg;meanm_m;varm_m;meanm_g;varm_g;meanm_e;varm_e;meanb;varb;" << endl;
 }
 
 
