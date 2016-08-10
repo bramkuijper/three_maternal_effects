@@ -33,33 +33,34 @@ for rep_i in range(0, replicates):
                     for sigma_e_i in sigma_e:
                         for freq_i in freq:
                             for omega2_i in omega2:
+                                for tau_i in tau:
 
-                                print("echo " + str(ctr))
-                                ctr+=1
+                                    print("echo " + str(ctr))
+                                    ctr+=1
 
-                                print(exe + " " 
-                                        + str(mu_g) + " " 
-                                        + str(mu_m_g_i) + " "
-                                        + str(mu_m_e_i) + " "
-                                        + str(mu_m_m_i) + " "
-                                        + str(mu_b_i) + " "
-                                        + str(sdmu) + " "
-                                        + str(sigma_e_i) + " "
-                                        + str(sigma_ksi) + " "
-                                        + str(wmin) + " "
-                                        + str(0) + " "
-                                        + str(omega2_i) + " "
-                                        + str(100) + " "
-                                        + str(100) + " "
-                                        + str(100) + " "
-                                        + str(100) + " "
-                                        + str(tau) + " "
-                                        + str(0) + " " # intercept t0
-                                        + str(freq_i) + " " # rate t0
-                                        + str(0) + " " # ampl t0
-                                        + str(0) + " " # intercept t1
-                                        + str(freq_i) + " " # rate t1
-                                        + str(0) + " " # ampl t1
-                                        + str(t_change) + " " # ampl t1
-                                        )
+                                    print(exe + " " 
+                                            + str(mu_g) + " " 
+                                            + str(mu_m_g_i) + " "
+                                            + str(mu_m_e_i) + " "
+                                            + str(mu_m_m_i) + " "
+                                            + str(mu_b_i) + " "
+                                            + str(sdmu) + " "
+                                            + str(sigma_e_i) + " "
+                                            + str(sigma_ksi) + " "
+                                            + str(wmin) + " "
+                                            + str(0) + " "
+                                            + str(omega2_i) + " "
+                                            + str(100) + " "
+                                            + str(100) + " "
+                                            + str(100) + " "
+                                            + str(100) + " "
+                                            + str(tau_i) + " "
+                                            + str(0) + " " # intercept t0
+                                            + str(freq_i) + " " # rate t0
+                                            + str(0) + " " # ampl t0
+                                            + str(0) + " " # intercept t1
+                                            + str(freq_i) + " " # rate t1
+                                            + str(0) + " " # ampl t1
+                                            + str(t_change) + " " # ampl t1
+                                            )
 
