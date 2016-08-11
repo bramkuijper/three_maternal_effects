@@ -273,6 +273,26 @@ Supplement: stochastic flucts
 Discussion
 \end_layout
 
+\begin_layout Paragraph
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+BK is supported by a Leverhulme Trust Early Career Research Fellowship (ECF
+ 2015-273).
+ This work has made use of the resources provided by the University of Exeter
+ Science Strategy and resulting Systems Biology initiative.
+ Primarily these include HPC facilities managed by Konrad Paszkiewicz of
+ the College of Environmental and Life Sciences and Pete Leggett of the
+ University of Exeter Academics services unit.
+ In addition, the authors acknowledge the use of the UCL Legion High Performance
+ Computing Facility (Legion@UCL) and associated support services in the
+ completion of this work.
+ The Dutch Academy of Arts and Sciences (KNAW) and the Lorentz Centre at
+ the University of Leiden, the Netherlands funded a workshop on nongenetic
+ effects that contributed to this article.
+\end_layout
+
 \begin_layout Section
 Figure captions
 \end_layout

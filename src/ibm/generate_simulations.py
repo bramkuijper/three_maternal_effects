@@ -5,7 +5,7 @@ import math
 
 mu_g = 0.01
 wmin = 0
-omega2 = [ 0.7, 40 ]
+omega2 = [ 40 ]
 mu_m_g = [ 0, 0.01 ]
 mu_m_e = [ 0, 0.01 ]
 mu_m_m = [ 0, 0.01 ]
@@ -16,14 +16,17 @@ sigma_ksi = 0.01
 t_change = 10000
 
 step = 30
-freq = list(np.arange(0, math.pi + math.pi/step, math.pi/step))
+freq = [0] #list(np.arange(0, math.pi + math.pi/step, math.pi/step))
+
+intercept_t1 = [ 6, 12, 20 ]
 
 tau = [ 0.25, 0.75 ]
 sdmu = 0.02
 
-replicates = 3
+replicates = 10
 ctr = 0 
 exe = "./xm_sin_change"
+
 
 for rep_i in range(0, replicates):
     for mu_m_g_i in mu_m_g:
@@ -34,33 +37,34 @@ for rep_i in range(0, replicates):
                         for freq_i in freq:
                             for omega2_i in omega2:
                                 for tau_i in tau:
+                                    for intercept_t1_i in intercept_t1:
 
-                                    print("echo " + str(ctr))
-                                    ctr+=1
+                                        print("echo " + str(ctr))
+                                        ctr+=1
 
-                                    print(exe + " " 
-                                            + str(mu_g) + " " 
-                                            + str(mu_m_g_i) + " "
-                                            + str(mu_m_e_i) + " "
-                                            + str(mu_m_m_i) + " "
-                                            + str(mu_b_i) + " "
-                                            + str(sdmu) + " "
-                                            + str(sigma_e_i) + " "
-                                            + str(sigma_ksi) + " "
-                                            + str(wmin) + " "
-                                            + str(0) + " "
-                                            + str(omega2_i) + " "
-                                            + str(100) + " "
-                                            + str(100) + " "
-                                            + str(100) + " "
-                                            + str(100) + " "
-                                            + str(tau_i) + " "
-                                            + str(0) + " " # intercept t0
-                                            + str(freq_i) + " " # rate t0
-                                            + str(0) + " " # ampl t0
-                                            + str(0) + " " # intercept t1
-                                            + str(freq_i) + " " # rate t1
-                                            + str(0) + " " # ampl t1
-                                            + str(t_change) + " " # ampl t1
-                                            )
+                                        print(exe + " " 
+                                                + str(mu_g) + " " 
+                                                + str(mu_m_g_i) + " "
+                                                + str(mu_m_e_i) + " "
+                                                + str(mu_m_m_i) + " "
+                                                + str(mu_b_i) + " "
+                                                + str(sdmu) + " "
+                                                + str(sigma_e_i) + " "
+                                                + str(sigma_ksi) + " "
+                                                + str(wmin) + " "
+                                                + str(0) + " "
+                                                + str(omega2_i) + " "
+                                                + str(100) + " "
+                                                + str(100) + " "
+                                                + str(100) + " "
+                                                + str(100) + " "
+                                                + str(tau_i) + " "
+                                                + str(0) + " " # intercept t0
+                                                + str(freq_i) + " " # rate t0
+                                                + str(0) + " " # ampl t0
+                                                + str(intercept_t1_i) + " " # intercept t1
+                                                + str(freq_i) + " " # rate t1
+                                                + str(0) + " " # ampl t1
+                                                + str(t_change) + " " # ampl t1
+                                                )
 
