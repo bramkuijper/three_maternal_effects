@@ -152,8 +152,8 @@ void initArguments(int argc, char *argv[])
 	mu_m_m = atof(argv[4]);
 	mu_b = atof(argv[5]);
 	sdmu = atof(argv[6]);
-	sigma_e = sqrt(atof(argv[7]));
-	sigma_ksi = sqrt(atof(argv[8]));
+	sigma_e = atof(argv[7]);
+	sigma_ksi = atof(argv[8]);
 	wmin = atof(argv[9]);
 	rho_t = atof(argv[10]);
 	omega2 = atof(argv[11]);
@@ -258,7 +258,7 @@ void Init()
 
         for (int j = 0; j < n_alleles_g; ++j)
         {
-            Pop[i].g[j] = intercept/n_alleles_g;
+            Pop[i].g[j] = intercept == 0 ? 0 : intercept/n_alleles_g;
         }
 
         for (int j = 0; j < n_alleles_b; ++j)
@@ -321,8 +321,7 @@ void Create_Kid(int mother, int father, Individual &kid)
     kid.phen_b = sum_b;
 
     // complete maternal control
-    kid.phen = 
-        kid.phen_g // elevation
+    kid.phen = kid.phen_g // elevation
         + gsl_ran_gaussian(r,sigma_e)  // developmental noise
         + kid.phen_b * epsilon_sens  // plasticity
         + kid.phen_m_m * Survivors[mother].phen // maternal phenotypic effect
@@ -340,7 +339,7 @@ void Survive()
 {
     double W;
 
-    double theta = ampl * epsilon;
+    double theta = epsilon;
 
     if (generation == t_change)
     {
