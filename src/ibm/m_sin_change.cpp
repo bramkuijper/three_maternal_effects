@@ -324,9 +324,9 @@ void Create_Kid(int mother, int father, Individual &kid)
     kid.phen = kid.phen_g // elevation
         + gsl_ran_gaussian(r,sigma_e)  // developmental noise
         + kid.phen_b * epsilon_sens  // plasticity
-        + kid.phen_m_m * Survivors[mother].phen // maternal phenotypic effect
-        + kid.phen_m_e * Survivors[mother].envt // maternal phenotypic effect
-        + kid.phen_m_g * Survivors[mother].phen_g; // maternal phenotypic effect
+        + kid.phen_m_m * Survivors[mother].phen // maternal cascading effect
+        + kid.phen_m_e * Survivors[mother].envt // maternal environmental effect
+        + Survivors[mother].phen_m_g; // maternal genetic effect
 
     kid.envt = epsilon_sens;
 
