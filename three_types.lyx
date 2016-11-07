@@ -340,7 +340,7 @@ key "Rossiter1996,Rossiter1998"
 
  
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Read the stuff by Lynch & Walsh
@@ -393,8 +393,416 @@ key "Rossiter1996"
 The model
 \end_layout
 
+\begin_layout Section
+Cascading maternal effects
+\end_layout
+
 \begin_layout Standard
-To assess the divergent impacts of 
+Cascading maternal effects were considered in Kuijper and Hoyle (2015).
+ The offspring phenotype just before selection is modelled as 
+\begin_inset Formula 
+\[
+z_{t}=a_{t}+b_{t}\epsilon_{t-\tau}+m_{t}z_{t-1}^{*}+e_{t},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{t}$
+\end_inset
+
+ is the additive genetic effect, 
+\begin_inset Formula $b_{t}$
+\end_inset
+
+ is the slope of the plastic response to the environment, 
+\begin_inset Formula $\epsilon_{t-\tau}$
+\end_inset
+
+, whose influence is felt a fraction 
+\begin_inset Formula $\tau$
+\end_inset
+
+ of a generation before selection, 
+\begin_inset Formula $m_{t}$
+\end_inset
+
+ is the maternal effect coefficient, 
+\begin_inset Formula $z_{t-1}^{*}$
+\end_inset
+
+ is the maternal phenotype after selection in the previous generation and
+ 
+\begin_inset Formula $e_{t}$
+\end_inset
+
+ is the residual component of variation.
+ The population is assumed to reproduce sexually and generations are non-overlap
+ping.
+ Selection is through mortality and fecundity selection is ignored.
+\end_layout
+
+\begin_layout Standard
+Calculations for the evolution of cascading maternal effects are presented
+ in Kuijper and Hoyle (2015) and we restate here for convenience the bare
+ bones.
+\end_layout
+
+\begin_layout Standard
+We define individual fitness as 
+\begin_inset Formula 
+\[
+W=W_{{\rm max}}\exp\left[-\frac{(z_{t}-\theta_{t})^{2}}{2\omega_{z}^{2}}-\frac{b_{t}^{2}}{2\omega_{b}^{2}}-\frac{m_{t}^{2}}{2\omega_{m}^{2}}\right],
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\theta_{t}=A+B\epsilon_{t}$
+\end_inset
+
+ is the optimum phenotype at selection in generation 
+\begin_inset Formula $t$
+\end_inset
+
+ and is a linear function of the environmental variable 
+\begin_inset Formula $\epsilon_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ being constant.
+ The constant 
+\begin_inset Formula $\omega_{z}$
+\end_inset
+
+ is an inverse measure of the strength of selection, while 
+\begin_inset Formula $\omega_{b}$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{m}$
+\end_inset
+
+ are inverse measures of the costs of plasticity and maternal effects respective
+ly.
+\end_layout
+
+\begin_layout Standard
+The updates in the population means of 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
+ at selection are given to leading order in 
+\begin_inset Formula $1/\omega^{2}$
+\end_inset
+
+ by 
+\begin_inset Formula 
+\begin{align}
+\Delta\bar{a}_{t} & =-\frac{G_{aa}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\frac{\partial\bar{z}_{t}}{\partial\bar{a}_{t}}+\frac{1}{2}\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{a}_{t}}\right],\label{deltaa}\\
+\Delta\bar{b}_{t} & =-\frac{G_{bb}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\frac{\partial\bar{z}_{t}}{\partial\bar{b}_{t}}+\frac{1}{2}\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{b}_{t}}+\frac{\omega_{z}^{2}\bar{b}_{t}}{\omega_{b}^{2}}\right],\label{deltab}\\
+\Delta\bar{m}_{t} & =-\frac{G_{mm}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\frac{\partial\bar{z}_{t}}{\partial\bar{m}_{t}}+\frac{1}{2}\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{m}_{t}}+\frac{\omega_{z}^{2}\bar{m}_{t}}{\omega_{m}^{2}}\right].\label{deltam}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In what follows, we assume as Kuijper and Hoyle (2015) did that the covariances
+ 
+\begin_inset Formula $G_{ab}$
+\end_inset
+
+, 
+\begin_inset Formula $G_{am}$
+\end_inset
+
+ and 
+\begin_inset Formula $G_{bm}$
+\end_inset
+
+ are all zero, i.e.
+ that no two of the additive genetic effect, slope of plasticity and maternal
+ effect coefficient covary.
+\end_layout
+
+\begin_layout Standard
+We will now use the expressions above to derive update rules for evolution
+ under two alternative models of maternal effects - maternal-environmental
+ and maternal-genetic - and compare the response of the three mechanisms
+ to different patterns of environmental change.
+\end_layout
+
+\begin_layout Section
+Maternal-environmental effects
+\end_layout
+
+\begin_layout Standard
+In this case the offspring phenotype is sensitive not to the phenotype of
+ the mother, but to the environment she experienced during her window of
+ sensitivity, i.e.
+ 
+\begin_inset Formula $\epsilon_{t-1-\tau}$
+\end_inset
+
+.
+ The offspring phenotype is now given by 
+\begin_inset Formula 
+\[
+z_{t}=a_{t}+b_{t}\epsilon_{t-\tau}+m_{t}\epsilon_{t-1-\tau}+e_{t}.
+\]
+
+\end_inset
+
+The population mean phenotype and the phenotypic variance in generation
+ 
+\begin_inset Formula $t$
+\end_inset
+
+ are thus given by 
+\begin_inset Formula 
+\begin{align*}
+\bar{z}_{t} & =\bar{a}_{t}+\bar{b}_{t}\epsilon_{t-\tau}+\bar{m}_{t}\epsilon_{t-1-\tau},\\
+\sigma_{z_{t}}^{2} & =G_{aa}+G_{bb}\epsilon_{t-\tau}^{2}+G_{mm}\epsilon_{t-1-\tau}^{2}+\sigma_{e}^{2}.
+\end{align*}
+
+\end_inset
+
+Thus we have 
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{a}_{t}}=\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{b}_{t}}=\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{m}_{t}}=0,\\
+ & \frac{\partial\bar{z}_{t}}{\partial\bar{a}_{t}}=1,\quad\frac{\partial\bar{z}_{t}}{\partial\bar{b}_{t}}=\epsilon_{t-\tau},\quad\frac{\partial\bar{z}_{t}}{\partial\bar{m}_{t}}=\epsilon_{t-1-\tau},
+\end{align*}
+
+\end_inset
+
+and so the updates under selection at generation 
+\begin_inset Formula $t$
+\end_inset
+
+ are given by 
+\begin_inset Formula 
+\begin{align*}
+\Delta\bar{a}_{t} & =-\frac{G_{aa}}{\omega_{z}^{2}}(\bar{z}_{t}-\theta_{t}),\\
+\Delta\bar{b}_{t} & =-\frac{G_{bb}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\epsilon_{t-\tau}+\frac{\omega_{z}^{2}\bar{b}_{t}}{\omega_{b}^{2}}\right],\\
+\Delta\bar{m}_{t} & =-\frac{G_{mm}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\epsilon_{t-1-\tau}+\frac{\omega_{z}^{2}\bar{m}_{t}}{\omega_{m}^{2}}\right].
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Maternal-genetic effects
+\end_layout
+
+\begin_layout Standard
+In this third model the offspring phenotype is sensitive to its mother's
+ genotype through an indirect maternal effects pathway in addition to the
+ direct genetic pathway from the mother: 
+\begin_inset Formula 
+\[
+z_{t}=a_{t}+b_{t}\epsilon_{t-\tau}+m_{t}a_{t-1}^{*}+e_{t}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we have mean phenotype and phenotypic variation given by 
+\begin_inset Formula 
+\begin{align*}
+\bar{z}_{t} & =\bar{a}_{t}+\bar{b}_{t}\epsilon_{t-\tau}+\bar{m}_{t}\bar{a}_{t-1}^{*},\\
+ & \approx\bar{a}_{t}+\bar{b}_{t}\epsilon_{t-\tau}+\bar{m}_{t}\bar{a}_{t},\\
+\sigma_{z_{t}}^{2} & =G_{aa}+G_{bb}\epsilon_{t-\tau}^{2}+2\bar{m}_{t}C_{a_{t}a_{t-1}^{*}}+\overline{m_{t}^{2}(a_{t-1}^{*})^{2}}-\bar{m}_{t}^{2}(\bar{a}_{t-1}^{*})^{2}+\sigma_{e}^{2},\\
+ & \approx G_{aa}(1+\bar{m}_{t}+\bar{m}_{t}^{2}+G_{mm})+G_{bb}\epsilon_{t-\tau}^{2}+G_{mm}\bar{a}_{t}^{2}+\sigma_{e}^{2},
+\end{align*}
+
+\end_inset
+
+where we have approximated 
+\begin_inset Formula $C_{a_{t}a_{t-1}^{*}}\approx G_{aa}/2$
+\end_inset
+
+, 
+\begin_inset Formula $G_{a_{t-1}^{*}a_{t-1}^{*}}\approx G_{aa}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{a}_{t-1}^{*}\approx\bar{a}_{t}$
+\end_inset
+
+ (weak selection).
+ Hence 
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{a}_{t}}=2G_{mm}\bar{a}_{t},\quad\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{b}_{t}}=0,\quad\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{m}_{t}}=G_{aa}(1+2\bar{m}_{t}),\\
+ & \frac{\partial\bar{z}_{t}}{\partial\bar{a}_{t}}=1+\bar{m}_{t},\quad\frac{\partial\bar{z}_{t}}{\partial\bar{b}_{t}}=\epsilon_{t-\tau},\quad\frac{\partial\bar{z}_{t}}{\partial\bar{m}_{t}}=\bar{a}_{t},
+\end{align*}
+
+\end_inset
+
+and so the updates under selection at generation 
+\begin_inset Formula $t$
+\end_inset
+
+ are given by 
+\begin_inset Formula 
+\begin{align*}
+\Delta\bar{a}_{t} & =-\frac{G_{aa}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})(1+\bar{m_{t}})+G_{mm}\bar{a}_{t}\right],\\
+\Delta\bar{b}_{t} & =-\frac{G_{bb}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\epsilon_{t-\tau}+\frac{\omega_{z}^{2}\bar{b}_{t}}{\omega_{b}^{2}}\right],\\
+\Delta\bar{m}_{t} & =-\frac{G_{mm}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\bar{a}_{t}+\frac{1}{2}G_{aa}(1+2\bar{m}_{t})+\frac{\omega_{z}^{2}\bar{m}_{t}}{\omega_{m}^{2}}\right].
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comparison of behaviour in a step-change environment
+\end_layout
+
+\begin_layout Standard
+We now let all three models evolve under the influence of a noisy step-change
+ environment 
+\begin_inset Formula 
+\[
+\epsilon_{t}=\delta U_{t}+\xi_{t},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $U_{t}$
+\end_inset
+
+ is the Heaviside step function, 
+\begin_inset Formula $\delta$
+\end_inset
+
+ measures the size of the environmental change and 
+\begin_inset Formula $\xi_{t}$
+\end_inset
+
+ is Gaussian random noise with mean zero, variance 
+\begin_inset Formula $\sigma_{\xi}^{2}$
+\end_inset
+
+ and autocorrelation 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+ The results are shown in Figs.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "stepchange1"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "stepchange3"
+
+\end_inset
+
+.
+ Kuijper and Hoyle (2015) found that for cascading maternal effects, the
+ maternal effect coefficient evolves towards negative values in the long
+ time limit, because this leads to low values of the phenotypic variance,
+ 
+\begin_inset Formula $\sigma_{z}^{2}$
+\end_inset
+
+, and hence to greater population mean fitness.
+ Strikingly, in the maternal-environmental case the maternal effect coefficient
+ evolves towards zero in the long time limit, which is to be expected because
+ the phenotypic variance does not depend on 
+\begin_inset Formula $\bar{m}$
+\end_inset
+
+.
+ In both those cases, long-term adaptation is through genetic assimilation,
+ with 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+ tending to 
+\begin_inset Formula $A\delta$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{b}$
+\end_inset
+
+ tending to zero.
+ In the maternal-genetic case, long-term adaptation cannot be through genetic
+ assimilation alone because the phentoypic variance is increased when 
+\begin_inset Formula $\bar{a}\ne0$
+\end_inset
+
+ (
+\begin_inset Formula $\sigma_{z}^{2}$
+\end_inset
+
+ contains a term 
+\begin_inset Formula $G_{mm}\bar{a}^{2}$
+\end_inset
+
+.
+ In consequence, the phenotype remains maladapted in the long term, undershootin
+g its target 
+\begin_inset Formula $\theta$
+\end_inset
+
+ somewhat, and in consequence both the slope of the plastic response 
+\begin_inset Formula $\bar{b}$
+\end_inset
+
+ and the maternal effect coefficient 
+\begin_inset Formula $\bar{m}$
+\end_inset
+
+ evolve towards positive values in the long term.
+ 
+\color red
+This is a change from the previous iteration because now I made the phenotype
+ depend on 
+\begin_inset Formula $a_{t-1}^{*}$
+\end_inset
+
+ rather than 
+\begin_inset Formula $a_{t-1}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
