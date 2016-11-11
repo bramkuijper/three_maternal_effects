@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys, re, os.path, csv
 import matplotlib
@@ -18,13 +18,15 @@ filename = sys.argv[1]
 # read in the csv file
 histdat = pd.read_csv(filename,sep=";")
 
+histdat = histdat[
+
 # initialize and specify size 
 fig = plt.figure(figsize=(10,18))
 
 num_rows = 6
 
 def to_log(row):
-    return(pd.Series(math.log10(row["time"])))
+    return(pd.Series(math.log10(1 + row["time"])))
 
 histdat["time"] = histdat.apply(to_log, axis=1)
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ./maternal_environmental.py 0.1 0.0 0.045       100 100        1 0     0.25 10         0.001 0.001 0.001 
+./maternal_environmental.py 0.1 0.045 0.045       100 100        1 0     0.25 10         0.001 0.001 0.001 
 
 
 #Gaa = float(sys.argv[1])

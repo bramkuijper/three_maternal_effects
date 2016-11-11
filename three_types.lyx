@@ -127,8 +127,8 @@
 \begin_body
 
 \begin_layout Title
-Evolving maternal genetic effects, maternal phenotypic effects or maternal
- environmental effects: same or different?
+Maternal effects involving maternal genes, phenotypes or environments: why
+ mechanism matters to adaptation
 \end_layout
 
 \begin_layout Author
@@ -340,7 +340,7 @@ key "Rossiter1996,Rossiter1998"
 
  
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Read the stuff by Lynch & Walsh
@@ -366,7 +366,7 @@ key "Willham1963,Bijma2006,Hadfield2012"
 \end_inset
 
 .
- MGEs are particularly well-studied as they are one of the best examples
+ MGEs are of interest to evolutionary biologist as they are the prime example
  of an indirect genetic effect (IGE), where genes expressed in one individual
  influence the expression of traits in others over and above any directly
  inherited genetic effects 
@@ -377,9 +377,9 @@ key "Wolf1998a,Bijma2013,McGlothlin2010"
 \end_inset
 
 .
- These maternal genetic effects are often distinguished from maternal environmen
-tal effects (MEEs), which are defined as any direct influences of the maternal
- environment on the offspring's phenotype 
+ A different type of maternal effet environmental effects (MEEs), which
+ are defined as any direct influences of the maternal environment on the
+ offspring's phenotype 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Rossiter1996"
@@ -393,17 +393,98 @@ key "Rossiter1996"
 The model
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+The current model builds on the seminal quantitative genetics model of maternal
+ effects by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Kirkpatrick1989"
+
+\end_inset
+
+ (see also 
+\begin_inset CommandInset citation
+LatexCommand citealt
+key "Lande1990,Hoyle2012"
+
+\end_inset
+
+), which considers consequences of an evolutionarily constant maternal effect
+ 
+\begin_inset Formula $m$
+\end_inset
+
+ to adaptation.
+ Recently, we have extended this study by allowing for the evolution of
+ this cascading maternal effect and to assess its interaction with within-genera
+tional phenotypic plasticity 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kuijper2015"
+
+\end_inset
+
+.
+ Here, we take this analysis one step further by not only considering the
+ evolution of cascading maternal effects, but also the evolution of maternal
+ genetic effects and maternal environmental effects.
+ To assess when and where these three different types of maternal effect
+ are likely to affect the evolutionary process, it is essential to consider
+ the evolution of alternative modes of adaptation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Botero2015"
+
+\end_inset
+
+.
+ To this end, we consider how these three different types of maternal effects
+ interact with evolving within-generational plasticity 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Lande2009,Chevin2010a,Tufto2015"
+
+\end_inset
+
+, by means of linear reaction norm with elevation 
+\begin_inset Formula $a_{t}$
+\end_inset
+
+ and slope 
+\begin_inset Formula $b_{t}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
 Cascading maternal effects
 \end_layout
 
 \begin_layout Standard
-Cascading maternal effects were considered in Kuijper and Hoyle (2015).
- The offspring phenotype just before selection is modelled as 
+Here we provide a brief recap of the model on cascading maternal effects
+ as considered in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Kuijper2015"
+
+\end_inset
+
+.
+ An individual's phenotype 
+\begin_inset Formula $z_{t}$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+ is given by
 \begin_inset Formula 
-\[
-z_{t}=a_{t}+b_{t}\epsilon_{t-\tau}+m_{t}z_{t-1}^{*}+e_{t},
-\]
+\begin{equation}
+z_{t}=a_{t}+b_{t}\varepsilon_{t-\tau}+m_{t}z_{t-1}^{*}+e_{t},\label{eq:cascading:phenotype}
+\end{equation}
 
 \end_inset
 
@@ -411,54 +492,81 @@ where
 \begin_inset Formula $a_{t}$
 \end_inset
 
- is the additive genetic effect, 
+ is the elevation of the genotypic reaction norm in the reference environment
+ 
+\begin_inset Formula $\varepsilon_{t-\tau}=0$
+\end_inset
+
+, 
 \begin_inset Formula $b_{t}$
 \end_inset
 
- is the slope of the plastic response to the environment, 
-\begin_inset Formula $\epsilon_{t-\tau}$
+ is the genetically encoded slope of the reaction norm that determines a
+ within-generational response to environment 
+\begin_inset Formula $\varepsilon_{t-\tau}$
 \end_inset
 
-, whose influence is felt a fraction 
+, whose influence is felt a fraction of time 
 \begin_inset Formula $\tau$
 \end_inset
 
- of a generation before selection, 
+ of a generation before selection 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Lande2009"
+
+\end_inset
+
+.
+ Next, 
 \begin_inset Formula $m_{t}$
 \end_inset
 
- is the maternal effect coefficient, 
+ is the cascading maternal effect coefficient that reflects a linear, transgener
+ational reaction norm on the parental 
 \begin_inset Formula $z_{t-1}^{*}$
 \end_inset
 
- is the maternal phenotype after selection in the previous generation and
- 
+.
+ Here, 
+\begin_inset Formula $*$
+\end_inset
+
+ reflects the notion that maternal phenotypes are measured after survival
+ selection, which is assumed to take place prior to reproduction.
+ Finally, 
 \begin_inset Formula $e_{t}$
 \end_inset
 
  is the residual component of variation.
  The population is assumed to reproduce sexually and generations are non-overlap
 ping.
- Selection is through mortality and fecundity selection is ignored.
+ Selection on parents is assumed to occur through mortality selection.
+ Individual-based simulations show, however, that identical results hold
+ in the presence of fecundity selection.
+ 
 \end_layout
 
 \begin_layout Standard
 Calculations for the evolution of cascading maternal effects are presented
- in Kuijper and Hoyle (2015) and we restate here for convenience the bare
- bones.
-\end_layout
+ in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Kuijper2015"
 
-\begin_layout Standard
-We define individual fitness as 
+\end_inset
+
+ and we restate here for convenience the bare bones.
+ We define individual fitness as 
 \begin_inset Formula 
-\[
-W=W_{{\rm max}}\exp\left[-\frac{(z_{t}-\theta_{t})^{2}}{2\omega_{z}^{2}}-\frac{b_{t}^{2}}{2\omega_{b}^{2}}-\frac{m_{t}^{2}}{2\omega_{m}^{2}}\right],
-\]
+\begin{equation}
+W=W_{{\rm max}}\exp\left[-\frac{\left(z_{t}-\theta_{t}\right){}^{2}}{2\omega_{z}^{2}}-\frac{b_{t}^{2}}{2\omega_{b}^{2}}-\frac{m_{t}^{2}}{2\omega_{m}^{2}}\right],\label{eq:cascading:fitness}
+\end{equation}
 
 \end_inset
 
 where 
-\begin_inset Formula $\theta_{t}=A+B\epsilon_{t}$
+\begin_inset Formula $\theta_{t}=A+B\varepsilon_{t}$
 \end_inset
 
  is the optimum phenotype at selection in generation 
@@ -466,10 +574,10 @@ where
 \end_inset
 
  and is a linear function of the environmental variable 
-\begin_inset Formula $\epsilon_{t}$
+\begin_inset Formula $\varepsilon_{t}$
 \end_inset
 
-, 
+, while 
 \begin_inset Formula $A$
 \end_inset
 
@@ -477,7 +585,8 @@ where
 \begin_inset Formula $B$
 \end_inset
 
- being constant.
+ are constants that respectively determine the intercept and amplitude of
+ fluctuations in the selective optimum.
  The constant 
 \begin_inset Formula $\omega_{z}$
 \end_inset
@@ -514,19 +623,21 @@ The updates in the population means of
  by 
 \begin_inset Formula 
 \begin{align}
-\Delta\bar{a}_{t} & =-\frac{G_{aa}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\frac{\partial\bar{z}_{t}}{\partial\bar{a}_{t}}+\frac{1}{2}\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{a}_{t}}\right],\label{deltaa}\\
-\Delta\bar{b}_{t} & =-\frac{G_{bb}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\frac{\partial\bar{z}_{t}}{\partial\bar{b}_{t}}+\frac{1}{2}\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{b}_{t}}+\frac{\omega_{z}^{2}\bar{b}_{t}}{\omega_{b}^{2}}\right],\label{deltab}\\
-\Delta\bar{m}_{t} & =-\frac{G_{mm}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\frac{\partial\bar{z}_{t}}{\partial\bar{m}_{t}}+\frac{1}{2}\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{m}_{t}}+\frac{\omega_{z}^{2}\bar{m}_{t}}{\omega_{m}^{2}}\right].\label{deltam}
+\Delta\bar{a}_{t} & =-\frac{G_{aa}}{\omega_{z}^{2}}\left[\left(\bar{z}_{t}-\theta_{t}\right)\frac{\partial\bar{z}_{t}}{\partial\bar{a}_{t}}+\frac{1}{2}\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{a}_{t}}\right],\label{deltaa}\\
+\Delta\bar{b}_{t} & =-\frac{G_{bb}}{\omega_{z}^{2}}\left[\left(\bar{z}_{t}-\theta_{t}\right)\frac{\partial\bar{z}_{t}}{\partial\bar{b}_{t}}+\frac{1}{2}\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{b}_{t}}+\frac{\omega_{z}^{2}\bar{b}_{t}}{\omega_{b}^{2}}\right],\label{deltab}\\
+\Delta\bar{m}_{t} & =-\frac{G_{mm}}{\omega_{z}^{2}}\left[\left(\bar{z}_{t}-\theta_{t}\right)\frac{\partial\bar{z}_{t}}{\partial\bar{m}_{t}}+\frac{1}{2}\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{m}_{t}}+\frac{\omega_{z}^{2}\bar{m}_{t}}{\omega_{m}^{2}}\right].\label{deltam}
 \end{align}
 
 \end_inset
 
+In what follows, we assume as 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Kuijper2015"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-In what follows, we assume as Kuijper and Hoyle (2015) did that the covariances
- 
+ did that the covariances 
 \begin_inset Formula $G_{ab}$
 \end_inset
 
@@ -541,6 +652,8 @@ In what follows, we assume as Kuijper and Hoyle (2015) did that the covariances
  are all zero, i.e.
  that no two of the additive genetic effect, slope of plasticity and maternal
  effect coefficient covary.
+ We note however that individual-based simulations, in which covariances
+ are free to evolve, yield nearly identical results.
 \end_layout
 
 \begin_layout Standard
@@ -550,24 +663,32 @@ We will now use the expressions above to derive update rules for evolution
  to different patterns of environmental change.
 \end_layout
 
-\begin_layout Section
-Maternal-environmental effects
+\begin_layout Subsection
+Maternal environmental effects
 \end_layout
 
 \begin_layout Standard
-In this case the offspring phenotype is sensitive not to the phenotype of
- the mother, but to the environment she experienced during her window of
- sensitivity, i.e.
+In this case, the individual's phenotype is sensitive not to the phenotype
+ of its mother, but to the environment the mother experienced during her
+ window of sensitivity, i.e.
  
-\begin_inset Formula $\epsilon_{t-1-\tau}$
+\begin_inset Formula $\varepsilon_{t-1-\tau}$
 \end_inset
 
 .
- The offspring phenotype is now given by 
+ An individual's phenotype 
+\begin_inset Formula $z_{t}$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+ is therefore now given by 
 \begin_inset Formula 
-\[
-z_{t}=a_{t}+b_{t}\epsilon_{t-\tau}+m_{t}\epsilon_{t-1-\tau}+e_{t}.
-\]
+\begin{equation}
+z_{t}=a_{t}+b_{t}\varepsilon_{t-\tau}+m_{t}\varepsilon_{t-1-\tau}+e_{t}.\label{eq:environmental:phenotype}
+\end{equation}
 
 \end_inset
 
@@ -578,10 +699,10 @@ The population mean phenotype and the phenotypic variance in generation
 
  are thus given by 
 \begin_inset Formula 
-\begin{align*}
-\bar{z}_{t} & =\bar{a}_{t}+\bar{b}_{t}\epsilon_{t-\tau}+\bar{m}_{t}\epsilon_{t-1-\tau},\\
-\sigma_{z_{t}}^{2} & =G_{aa}+G_{bb}\epsilon_{t-\tau}^{2}+G_{mm}\epsilon_{t-1-\tau}^{2}+\sigma_{e}^{2}.
-\end{align*}
+\begin{align}
+\bar{z}_{t} & =\bar{a}_{t}+\bar{b}_{t}\varepsilon_{t-\tau}+\bar{m}_{t}\epsilon_{t-1-\tau},\label{eq:environmental:mean_phenotype}\\
+\sigma_{z_{t}}^{2} & =G_{aa}+G_{bb}\varepsilon_{t-\tau}^{2}+G_{mm}\varepsilon_{t-1-\tau}^{2}+\sigma_{e}^{2}.\label{eq:environmental:phenotypic_variance}
+\end{align}
 
 \end_inset
 
@@ -589,12 +710,13 @@ Thus we have
 \begin_inset Formula 
 \begin{align*}
  & \frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{a}_{t}}=\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{b}_{t}}=\frac{\partial\sigma_{z_{t}}^{2}}{\partial\bar{m}_{t}}=0,\\
- & \frac{\partial\bar{z}_{t}}{\partial\bar{a}_{t}}=1,\quad\frac{\partial\bar{z}_{t}}{\partial\bar{b}_{t}}=\epsilon_{t-\tau},\quad\frac{\partial\bar{z}_{t}}{\partial\bar{m}_{t}}=\epsilon_{t-1-\tau},
+ & \frac{\partial\bar{z}_{t}}{\partial\bar{a}_{t}}=1,\quad\frac{\partial\bar{z}_{t}}{\partial\bar{b}_{t}}=\varepsilon_{t-\tau},\quad\frac{\partial\bar{z}_{t}}{\partial\bar{m}_{t}}=\varepsilon_{t-1-\tau},
 \end{align*}
 
 \end_inset
 
-and so the updates under selection at generation 
+and so the evolutionary change in the reaction norm and the maternal environment
+al effect at generation 
 \begin_inset Formula $t$
 \end_inset
 
@@ -602,8 +724,8 @@ and so the updates under selection at generation
 \begin_inset Formula 
 \begin{align*}
 \Delta\bar{a}_{t} & =-\frac{G_{aa}}{\omega_{z}^{2}}(\bar{z}_{t}-\theta_{t}),\\
-\Delta\bar{b}_{t} & =-\frac{G_{bb}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\epsilon_{t-\tau}+\frac{\omega_{z}^{2}\bar{b}_{t}}{\omega_{b}^{2}}\right],\\
-\Delta\bar{m}_{t} & =-\frac{G_{mm}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\epsilon_{t-1-\tau}+\frac{\omega_{z}^{2}\bar{m}_{t}}{\omega_{m}^{2}}\right].
+\Delta\bar{b}_{t} & =-\frac{G_{bb}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\varepsilon_{t-\tau}+\frac{\omega_{z}^{2}\bar{b}_{t}}{\omega_{b}^{2}}\right],\\
+\Delta\bar{m}_{t} & =-\frac{G_{mm}}{\omega_{z}^{2}}\left[(\bar{z}_{t}-\theta_{t})\varepsilon_{t-1-\tau}+\frac{\omega_{z}^{2}\bar{m}_{t}}{\omega_{m}^{2}}\right].
 \end{align*}
 
 \end_inset
@@ -611,8 +733,8 @@ and so the updates under selection at generation
 
 \end_layout
 
-\begin_layout Section
-Maternal-genetic effects
+\begin_layout Subsection
+Maternal genetic effects
 \end_layout
 
 \begin_layout Standard
@@ -678,6 +800,14 @@ and so the updates under selection at generation
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+Figure XX shows 
 \end_layout
 
 \begin_layout Section
@@ -823,6 +953,23 @@ Supplement: stochastic flucts
 
 \begin_layout Section
 Discussion
+\end_layout
+
+\begin_layout Standard
+Mention:
+\end_layout
+
+\begin_layout Standard
+Future extensions would involve the evolution of these different types of
+ maternal effects with phenotypic plasticity and bet-hedging 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Tufto2015"
+
+\end_inset
+
+.
+ In addition,
 \end_layout
 
 \begin_layout Paragraph
