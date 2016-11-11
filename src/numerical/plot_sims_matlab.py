@@ -15,10 +15,36 @@ rcParams.update(params)
 # get the filename from the command line
 filename = sys.argv[1]
 
-# read in the csv file
-histdat = pd.read_csv(filename,sep=";")
+f = open(filename)
+fl = f.readlines()
+f.close()
 
-histdat = histdat[
+# loop through line numbers in reverse order 
+# and find first line of parameter listing
+parline = -1
+
+line_numbers = list(range(0,len(fl)))
+
+line_numbers.reverse()
+
+for i in line_numbers:
+    if re.match("^type.*", fl[i]) is not None:
+        parline = i
+
+if parline == -1:
+    parline = len(fl)
+else:
+    parline = parline - 3
+
+del fl
+
+
+# read in the csv file
+histdat = pd.read_csv(filename,sep=";",nrows=parline)
+
+print(histdat.describe())
+
+histdat = histdat[histdat["time"] % 100 == 0]
 
 # initialize and specify size 
 fig = plt.figure(figsize=(10,18))
@@ -28,7 +54,7 @@ num_rows = 6
 def to_log(row):
     return(pd.Series(math.log10(1 + row["time"])))
 
-histdat["time"] = histdat.apply(to_log, axis=1)
+#histdat["time"] = histdat.apply(to_log, axis=1)
 
 # add first subplot
 plt.subplot(num_rows,1,1)
@@ -60,7 +86,7 @@ plt.tick_params(axis='x',which='both',bottom='on',top='on')
 plt.ylabel(r'mean fitness, $\bar{W}$')
 
 plt.subplot(num_rows,1,6)
-plt.plot(histdat["time"],histdat["epst"],'b',linewidth=1)
+plt.plot(histdat["time"],histdat["envt"],'b',linewidth=1)
 plt.tick_params(axis='x',which='both',bottom='on',top='on')
 plt.ylabel(r'proportion soft inheritance')
 #plt.subplot(num_rows,1,2)
