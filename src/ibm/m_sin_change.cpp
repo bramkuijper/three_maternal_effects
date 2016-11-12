@@ -48,7 +48,7 @@ const int NumGen = 50000;
 const int Npop = 5000; 
 
 // number of generations to skip when outputting data
-const int skip = 1;
+const int skip = 100;
 
 // track number of survivors
 int NSurv = 0;

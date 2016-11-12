@@ -1,11 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import numpy as np
 import math
 
 mu_g = 0.01
 wmin = 0
-omega2 = [ 40 ]
+omega2 = [ 0.7 ]
 mu_m_g = [ 0, 0.01 ]
 mu_m_e = [ 0, 0.01 ]
 mu_m_m = [ 0, 0.01 ]
@@ -16,14 +16,19 @@ sigma_ksi = 0.01
 t_change = 10000
 
 step = 30
-freq = [0] #list(np.arange(0, math.pi + math.pi/step, math.pi/step))
+freq = list(np.arange(0, math.pi + math.pi/step, math.pi/step))
+#freq = [ 0.5, math.pi - 0.5 ]
 
-intercept_t1 = [ 6, 12, 20 ]
+step = 40
+intercept_t1 = list(np.arange(0,10 + 10.0/step, 10.0/step))
 
-tau = [ 0.25, 0.75 ]
+
+tau = [ 0.25 ]
 sdmu = 0.02
 
-replicates = 10
+ampl = 2.0
+
+replicates = 1
 ctr = 0 
 exe = "./xm_sin_change"
 
@@ -61,10 +66,10 @@ for rep_i in range(0, replicates):
                                                 + str(tau_i) + " "
                                                 + str(0) + " " # intercept t0
                                                 + str(freq_i) + " " # rate t0
-                                                + str(0) + " " # ampl t0
+                                                + str(ampl) + " " # ampl t0
                                                 + str(intercept_t1_i) + " " # intercept t1
                                                 + str(freq_i) + " " # rate t1
-                                                + str(0) + " " # ampl t1
+                                                + str(ampl) + " " # ampl t1
                                                 + str(t_change) + " " # ampl t1
                                                 )
 
