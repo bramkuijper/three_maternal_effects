@@ -42,7 +42,7 @@
 using namespace std;
 
 // number of generations
-const int NumGen = 50000;
+const int NumGen = 10000;
 
 // population size
 const int Npop = 5000; 

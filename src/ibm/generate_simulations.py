@@ -16,10 +16,10 @@ sigma_ksi = 0.01
 
 mu_m_g = [ 0 ]
 mu_m_e = [ 0 ]
-mu_m_m = [ 0.01 ]
-mu_b = [ 0 ]
+mu_m_m = [ 0.0 ]
+mu_b = [ 0.01 ]
 
-t_change = 10000
+t_change = 5000
 
 step = 30
 freq = list(np.arange(0, math.pi + math.pi/step, math.pi/step))
@@ -29,7 +29,7 @@ freq = [freq[4]]
 
 step = 40
 #intercept_t1 = list(np.arange(0,10 + 10.0/step, 10.0/step))
-intercept_t1 = [ 6 ]
+intercept_t1 = list(range(10, 50, 1))
 
 
 tau = [ 0.25 ]
