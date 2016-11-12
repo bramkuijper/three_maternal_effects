@@ -93,6 +93,8 @@ double intptb = 0;
 double rateptb = 0;
 double amplptb = 0;
 
+bool envt_is_changed = false; // whether the environment is changed or not
+
 const int n_alleles_b = 2; // number of alleles underlying genetic architecture
 const int n_alleles_g = 50; // number of alleles underlying genetic architecture
 const int n_alleles_m = 2; // number of alleles underlying genetic architecture
@@ -341,11 +343,16 @@ void Survive()
 
     double theta = epsilon;
 
-    if (generation == t_change)
+    if (!envt_is_changed)
     {
-        rate = rateptb;
-        intercept = intptb;
-        ampl = amplptb;
+        if (generation > t_change && fabs(epsilon - 0) < 0.01)
+        {
+            rate = rateptb;
+            intercept = intptb;
+            ampl = amplptb;
+
+            envt_is_changed = true;
+        }
     }
 
 
