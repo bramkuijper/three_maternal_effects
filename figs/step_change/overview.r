@@ -1,7 +1,7 @@
 # plot how an environmental perturbation works for
 # different maternal effects
 
-the.data <- read.table("summary_three.csv"
+the.data <- read.table("summary_three_x.csv"
                         ,sep=";"
                         ,header=T)
 

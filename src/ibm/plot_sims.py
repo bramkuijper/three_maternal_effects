@@ -35,22 +35,24 @@ else:
     histdat = pd.read_csv(filename, sep=";")
 
 # only take every tenth generation, otherwise too much data....
-histdat = histdat[histdat["generation"] % 10 == 0]
+#histdat = histdat[histdat["generation"] % 10 == 0]
+
+#histdat = histdat[(histdat["generation"] > 4900) & (histdat["generation"] < 5050)]
 
 # generate the figure
 
 # initialize and specify size 
-fig = plt.figure(figsize=(10,10))
+fig = plt.figure(figsize=(10,13))
 
-num_rows = 6
+num_rows = 7
 
 # add first subplot
 plt.subplot(num_rows,1,1)
-plt.plot(        histdat["generation"],histdat["epsilon"],'darkgreen',
-histdat["generation"],histdat["meanz"],'b'
-        )
+plt.plot(histdat["generation"],histdat["epsilon"],'darkgreen',linewidth=1)
+plt.plot(histdat["generation"],histdat["meanz"],'b',linewidth=1)
 plt.tick_params(axis='x',which='both',bottom='on',top='on',labelbottom='off')
 plt.ylabel(r'Elevation, $\bar{z}$')
+#plt.ylim((-2.5,2.5))
 
 # add second subplot
 plt.subplot(num_rows,1,2)
@@ -96,6 +98,13 @@ plt.plot(
         histdat["generation"],histdat["varz"],'peru',
         linewidth=1)
 plt.ylabel(r'Variances')
+
+# add fourth subplot
+plt.subplot(num_rows,1,7)
+plt.plot(
+        histdat["generation"],histdat["ksi"],'blue',
+        linewidth=1)
+plt.ylabel(r'$\xi$')
 
 graphname = os.path.dirname(filename)
 if graphname != '':

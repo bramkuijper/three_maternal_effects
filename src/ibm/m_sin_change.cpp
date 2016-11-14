@@ -48,7 +48,7 @@ const int NumGen = 10000;
 const int Npop = 5000; 
 
 // number of generations to skip when outputting data
-const int skip = 100;
+const int skip = 1;
 
 // track number of survivors
 int NSurv = 0;
@@ -87,6 +87,7 @@ double ampl = 0.0;
 double int_t0 = 0;
 double rate_t0 = 0;
 double ampl_t0 = 0;
+double max_sin = 0;
 
 // values after perturbation
 double intptb = 0;
@@ -96,7 +97,7 @@ double amplptb = 0;
 bool envt_is_changed = false; // whether the environment is changed or not
 
 const int n_alleles_b = 2; // number of alleles underlying genetic architecture
-const int n_alleles_g = 50; // number of alleles underlying genetic architecture
+const int n_alleles_g = 2; // number of alleles underlying genetic architecture
 const int n_alleles_m = 2; // number of alleles underlying genetic architecture
 
 // keep track of the current generation number
@@ -252,6 +253,7 @@ void Init()
     r = gsl_rng_alloc(T);
     gsl_rng_set(r, seed);
 
+    max_sin = 0;
 
 	// initialize the whole populatin
 	for (int i = 0; i < Npop; ++i)
@@ -274,6 +276,11 @@ void Init()
             Pop[i].m_e[j] = 0;
             Pop[i].m_g[j] = 0;
         }
+
+        if (ampl * sin(rate * i) > max_sin)
+        {
+            max_sin = ampl * sin(rate * i);
+        } 
 	}
 }
 
@@ -345,7 +352,10 @@ void Survive()
 
     if (!envt_is_changed)
     {
-        if (generation > t_change && fabs(epsilon - 0) < 0.01)
+        if (generation > t_change 
+                && 
+                ampl * sin(rate * generation) > max_sin - 0.1
+           )
         {
             rate = rateptb;
             intercept = intptb;
